@@ -65,7 +65,7 @@ class DoublyLinkedList<T> {
    * @type DoublyLinkedListNode
    * @private
    */
-  private _head: DoublyLinkedListNode = null;
+  private _head: DoublyLinkedListNode<T> = null;
 
   /**
    * Reference to tail(last) element in list
@@ -74,7 +74,7 @@ class DoublyLinkedList<T> {
    * @type DoublyLinkedListNode
    * @private
    */
-  private _tail: DoublyLinkedListNode = null;
+  private _tail: DoublyLinkedListNode<T> = null;
 
   /**
    * Reference to iterated element in list
@@ -83,7 +83,7 @@ class DoublyLinkedList<T> {
    * @type DoublyLinkedListNode
    * @private
    */
-  private _current: DoublyLinkedListNode = null;
+  private _current: DoublyLinkedListNode<T> = null;
 
   /**
    * Insert a new value at the specified index
@@ -93,7 +93,7 @@ class DoublyLinkedList<T> {
    * @param value The new value for the index.
    * @return void
    */
-  public add(index: any, value: any): void {
+  public add(index: number, value: T): void {
     if (index < 0 || index >= this._length) {
       throw new Error("Out of bounds");
     }
@@ -112,9 +112,9 @@ class DoublyLinkedList<T> {
    * Pops a node from the end of the doubly linked list
    *
    * @method pop
-   * @return any  The value of the popped node.
+   * @return T  The value of the popped node.
    */
-  public pop(): any {
+  public pop(): T {
     if (this._length === 0) {
       throw new Error("Can't pop from an empty data structure");
     }
@@ -141,9 +141,9 @@ class DoublyLinkedList<T> {
    * Shifts a node from the beginning of the doubly linked list
    *
    * @method shift
-   * @return any  The value of the shifted node.
+   * @return T  The value of the shifted node.
    */
-  public shift(): any {
+  public shift(): T {
     if (this._length === 0) {
       throw new Error("Can't shift from an empty data structure");
     }
@@ -168,9 +168,9 @@ class DoublyLinkedList<T> {
    * @param value The value to push.
    * @return void
    */
-  public push(value: any): void {
+  public push(value: T): void {
     // allocate new node
-    var node: DoublyLinkedListNode = {
+    var node: DoublyLinkedListNode<T> = {
       value: value,
       prev: this._tail,
       next: null,
@@ -193,9 +193,9 @@ class DoublyLinkedList<T> {
    * @param value The value to unshift.
    * @return void
    */
-  public unshift(value: any): void {
+  public unshift(value: T): void {
     // allocate new node
-    var node: DoublyLinkedListNode = {
+    var node: DoublyLinkedListNode<T> = {
       value: value,
       prev: null,
       next: this._head,
@@ -215,9 +215,9 @@ class DoublyLinkedList<T> {
    * Peeks at the node from the end of the doubly linked list
    *
    * @method top
-   * @return any  The value of the last node.
+   * @return T  The value of the last node.
    */
-  public top(): any {
+  public top(): T {
     if (this._tail) return this._tail.value;
   }
 
@@ -225,9 +225,9 @@ class DoublyLinkedList<T> {
    * Peeks at the node from the beginning of the doubly linked list
    *
    * @method bottom
-   * @return any  The value of the first node.
+   * @return T  The value of the first node.
    */
-  public bottom(): any {
+  public bottom(): T {
     if (this._head) return this._head.value;
   }
 
@@ -266,9 +266,9 @@ class DoublyLinkedList<T> {
    * Return current list entry
    *
    * @method current
-   * @return any  The current node value.
+   * @return T  The current node value.
    */
-  public current(): any {
+  public current(): T {
     if (this._current) {
       return this._current.value;
     }
@@ -279,9 +279,9 @@ class DoublyLinkedList<T> {
    * Return current node index
    *
    * @method key
-   * @return any  The current node index.
+   * @return T  The current node index.
    */
-  public key(): any {
+  public key(): number {
     return this._key;
   }
 
@@ -311,7 +311,7 @@ class DoublyLinkedList<T> {
    * Check whether the doubly linked list contains more nodes
    *
    * @method valid
-   * @return boolean true if the doubly linked list contains any more nodes, false otherwise.
+   * @return boolean true if the doubly linked list contains T more nodes, false otherwise.
    */
   public valid(): boolean {
     return this._key >= 0 && this._key < this._length;
@@ -323,7 +323,7 @@ class DoublyLinkedList<T> {
    * @method toArray
    * @return Array   The exported array
    */
-  public toArray(): Array<any> {
+  public toArray(): Array<T> {
     var list = [];
     var current = this._head;
     while (current) {
@@ -348,8 +348,8 @@ class DoublyLinkedList<T> {
  * DoublyLinkedList element
  * @interface
  */
-interface DoublyLinkedListNode {
-  value: any;
-  prev: DoublyLinkedListNode;
-  next: DoublyLinkedListNode;
+interface DoublyLinkedListNode<T> {
+  value: T;
+  prev: DoublyLinkedListNode<T>;
+  next: DoublyLinkedListNode<T>;
 }
