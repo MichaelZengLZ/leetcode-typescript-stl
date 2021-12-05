@@ -1,0 +1,40 @@
+{
+  "name": "leetcode-typescript-stl",
+  "version": "1.0.0",
+  "description": "When I use typescript to finish problems in leetcode.com, I always find myself missing basic data structure in a file that is able copy to the leetcode.com to solve problem. What's more there are a lot of people have the same problem. Therefore, I create this repo to help people around.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/eslint/bin/eslint.js . --fix",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelZengLZ/leetcode-typescript-stl.git"
+  },
+  "keywords": [
+    "leetcode",
+    "leetcode.com",
+    "typescript",
+    "data",
+    "structure",
+    "standard",
+    "tempalte",
+    "library"
+  ],
+  "author": "MichaelZeng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MichaelZengLZ/leetcode-typescript-stl/issues"
+  },
+  "homepage": "https://github.com/MichaelZengLZ/leetcode-typescript-stl#readme",
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "eslint": "^8.4.0",
+    "eslint-config-google": "^0.14.0",
+    "jest": "^27.4.3",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.5.2"
+  }
+}
