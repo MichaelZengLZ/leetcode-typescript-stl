@@ -1,4 +1,4 @@
-class Queue<T> {
+class SimpleQueue<T> {
   private _head: QueueNode<T>;
   private _tail: QueueNode<T>;
   private _size: number;
