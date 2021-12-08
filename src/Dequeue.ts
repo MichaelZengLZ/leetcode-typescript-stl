@@ -30,12 +30,13 @@ export class DoubleEndedQueue<T> {
   }
 
   public toString(): string {
-    return "{" + this.linkedList.toArray().join("->") + "}";
+    return '{' + this.linkedList.toArray().join('->') + '}';
   }
 }
 
 /**
- * The DoublyLinkedList class provides the main functionality of a doubly linked list.
+ * The DoublyLinkedList class provides
+ * the main functionality of a doubly linked list.
  *
  * @class DoublyLinkedList
  */
@@ -95,11 +96,11 @@ class DoublyLinkedList<T> {
    */
   public add(index: number, value: T): void {
     if (index < 0 || index >= this._length) {
-      throw new Error("Out of bounds");
+      throw new Error('Out of bounds');
     }
 
-    var i = 0;
-    var current = this._head;
+    let i = 0;
+    let current = this._head;
     while (i < index) {
       current = current.next;
       i++;
@@ -116,10 +117,10 @@ class DoublyLinkedList<T> {
    */
   public pop(): T {
     if (this._length === 0) {
-      throw new Error("Can't pop from an empty data structure");
+      throw new Error(`Can't pop from an empty data structure`);
     }
 
-    var value = this._tail.value;
+    const value = this._tail.value;
 
     this._tail = this._tail.prev;
     if (this._tail) {
@@ -145,10 +146,10 @@ class DoublyLinkedList<T> {
    */
   public shift(): T {
     if (this._length === 0) {
-      throw new Error("Can't shift from an empty data structure");
+      throw new Error(`Can't shift from an empty data structure`);
     }
 
-    var value = this._head.value;
+    const value = this._head.value;
 
     this._head = this._head.next;
     if (this._head) {
@@ -170,7 +171,7 @@ class DoublyLinkedList<T> {
    */
   public push(value: T): void {
     // allocate new node
-    var node: DoublyLinkedListNode<T> = {
+    const node: DoublyLinkedListNode<T> = {
       value: value,
       prev: this._tail,
       next: null,
@@ -195,7 +196,7 @@ class DoublyLinkedList<T> {
    */
   public unshift(value: T): void {
     // allocate new node
-    var node: DoublyLinkedListNode<T> = {
+    const node: DoublyLinkedListNode<T> = {
       value: value,
       prev: null,
       next: this._head,
@@ -311,7 +312,8 @@ class DoublyLinkedList<T> {
    * Check whether the doubly linked list contains more nodes
    *
    * @method valid
-   * @return boolean true if the doubly linked list contains T more nodes, false otherwise.
+   * @return boolean true if the doubly linked
+   * list contains T more nodes, false otherwise.
    */
   public valid(): boolean {
     return this._key >= 0 && this._key < this._length;
@@ -324,8 +326,8 @@ class DoublyLinkedList<T> {
    * @return Array   The exported array
    */
   public toArray(): Array<T> {
-    var list = [];
-    var current = this._head;
+    const list = [];
+    let current = this._head;
     while (current) {
       list.push(current.value);
       current = current.next;
@@ -340,7 +342,7 @@ class DoublyLinkedList<T> {
    * @return string   The serialized string.
    */
   public toString(): string {
-    return "{" + this.toArray().join("->") + "}";
+    return '{' + this.toArray().join('->') + '}';
   }
 }
 
