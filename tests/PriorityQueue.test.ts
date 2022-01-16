@@ -20,43 +20,43 @@ import PriorityQueue from '../src/PriorityQueue';
 
 const data = [];
 for (let i = 0; i < 100; i++) {
-    data.push(Math.floor(100 * Math.random()));
+  data.push(Math.floor(100 * Math.random()));
 }
 
 const sorted = data.slice().sort((a, b) => a - b);
 
 test('maintains a priority queue', () => {
-    const queue = new PriorityQueue<number>();
-    for (let i = 0; i < data.length; i++) queue.push(data[i]);
+  const queue = new PriorityQueue<number>();
+  for (let i = 0; i < data.length; i++) queue.push(data[i]);
 
-    expect(queue.peek()).toEqual(sorted[0]);
+  expect(queue.peek()).toEqual(sorted[0]);
 
-    const result = [];
-    while (queue.length) result.push(queue.pop());
+  const result = [];
+  while (queue.length) result.push(queue.pop());
 
-    expect(result).toEqual(sorted);
+  expect(result).toEqual(sorted);
 });
 
 test('accepts data in constructor', () => {
-    const queue = new PriorityQueue<number>(data.slice());
+  const queue = new PriorityQueue<number>(data.slice());
 
-    const result = [];
-    while (queue.length) result.push(queue.pop());
+  const result = [];
+  while (queue.length) result.push(queue.pop());
 
-    expect(result).toEqual(sorted);
+  expect(result).toEqual(sorted);
 });
 
 test('handles edge cases with few elements', () => {
-    const queue = new PriorityQueue<number>();
+  const queue = new PriorityQueue<number>();
 
-    queue.push(2);
-    queue.push(1);
-    queue.pop();
-    queue.pop();
-    queue.pop();
-    queue.push(2);
-    queue.push(1);
-    expect(queue.pop()).toBe(1);
-    expect(queue.pop()).toBe(2);
-    expect(queue.pop()).toBe(null);
+  queue.push(2);
+  queue.push(1);
+  queue.pop();
+  queue.pop();
+  queue.pop();
+  queue.push(2);
+  queue.push(1);
+  expect(queue.pop()).toBe(1);
+  expect(queue.pop()).toBe(2);
+  expect(queue.pop()).toBe(null);
 });

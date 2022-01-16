@@ -1,4 +1,4 @@
-class SimpleQueue<T> {
+export class SimpleQueue<T> {
   private _head: QueueNode<T>;
   private _tail: QueueNode<T>;
   private _size: number;
@@ -7,7 +7,7 @@ class SimpleQueue<T> {
     this.clear();
   }
 
-  enqueue(value: T): void {
+  push(value: T): void {
     const node = new QueueNode<T>(value);
 
     if (this._head) {
@@ -21,7 +21,7 @@ class SimpleQueue<T> {
     this._size++;
   }
 
-  dequeue(): T | null {
+  pop(): T | null {
     const current = this._head;
     if (!current) {
       return null;
@@ -50,7 +50,7 @@ class SimpleQueue<T> {
     return this._head;
   }
 
-  *[Symbol.iterator]() {
+  * [Symbol.iterator]() {
     let current = this.head;
 
     while (current) {

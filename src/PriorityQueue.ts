@@ -21,7 +21,7 @@ export default class PriorityQueue<T> {
 
   constructor(
     private _data: T[] = [],
-    private _compare: (a: T, b: T) => number = (a, b) => a < b ? -1 : 1
+    private _compare: (a: T, b: T) => number = (a, b) => a < b ? -1 : 1,
   ) {
     this.length = _data.length;
 
@@ -60,7 +60,7 @@ export default class PriorityQueue<T> {
   }
 
   private _up(pos): void {
-    const { _data, _compare } = this;
+    const {_data, _compare} = this;
     const item = _data[pos];
 
     while (pos > 0) {
@@ -75,7 +75,7 @@ export default class PriorityQueue<T> {
   }
 
   private _down(pos): void {
-    const { _data, _compare } = this;
+    const {_data, _compare} = this;
     const halfLength = this.length >> 1;
     const item = _data[pos];
 
